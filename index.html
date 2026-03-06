@@ -1158,22 +1158,13 @@
     return link;
   }
 
-  // Cookie helper
-  function setCookie(name, value, days) {
-    const d = new Date();
-    d.setTime(d.getTime() + (days*24*60*60*1000));
-    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+  // Session storage for tracking clicks (resets when tab/browser closes)
+  function hasClickedBlog(blogId) {
+    return sessionStorage.getItem('blog_' + blogId) === 'clicked';
   }
   
-  function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i=0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
+  function markBlogClicked(blogId) {
+    sessionStorage.setItem('blog_' + blogId, 'clicked');
   }
 
   // Blog post card click handler with Monetag redirect
@@ -1181,17 +1172,15 @@
     card.addEventListener('click', function(e) {
       e.preventDefault();
       const postUrl = this.getAttribute('data-post-url');
-      const visited = getCookie('mt_visited');
+      const blogId = postUrl.replace('.html', ''); // Use filename as unique ID
       
-      if (!visited) {
-        // First time - redirect to Monetag then to post
-        setCookie('mt_visited', '1', 1); // 1 day cookie
+      if (!hasClickedBlog(blogId)) {
+        // FIRST CLICK - Open Monetag and stay on homepage
+        markBlogClicked(blogId);
         window.open(getMonetag(), '_blank');
-        setTimeout(() => {
-          window.location.href = postUrl;
-        }, 1500);
+        // User stays on homepage - no redirect
       } else {
-        // Already visited - go direct to post
+        // SECOND CLICK - Go to actual blog post
         window.location.href = postUrl;
       }
     });
@@ -1217,4 +1206,5 @@
   });
 </script>
 </body>
+
 </html>
