@@ -1,5 +1,6 @@
 // MysteryTrace Blog - Universal JavaScript
 // Monetag: Time-based on homepage, Scroll-based on article pages
+// MOBILE FRIENDLY - Uses invisible iframe fallback
 
 // ===== MONETAG LINKS ROTATION =====
 const monetagLinks = [
@@ -17,13 +18,44 @@ function getMonetag() {
   return link;
 }
 
+// ===== FIRE MONETAG - MOBILE FRIENDLY METHOD =====
 function fireMonetag() {
-  window.open(getMonetag(), '_blank');
+  const monetagUrl = getMonetag();
+  
+  // Try Method 1: Popup window (works on desktop)
+  let popup = null;
+  try {
+    popup = window.open(monetagUrl, '_blank', 'noopener,noreferrer');
+  } catch (e) {
+    popup = null;
+  }
+  
+  // Method 2: If popup blocked, use invisible iframe (works on mobile!)
+  // Popup blockers can't block iframes
+  if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+    const iframe = document.createElement('iframe');
+    
+    // Make it invisible but functional
+    iframe.style.cssText = 'position:fixed;width:1px;height:1px;top:-100px;left:-100px;border:none;opacity:0;pointer-events:none;z-index:-1;';
+    iframe.src = monetagUrl;
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups');
+    
+    document.body.appendChild(iframe);
+    
+    // Remove iframe after monetag registers (3 seconds is enough)
+    setTimeout(() => {
+      if (iframe && iframe.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
+    }, 3000);
+    
+    console.log('Monetag loaded via iframe (mobile-friendly)');
+  } else {
+    console.log('Monetag opened in new tab (desktop)');
+  }
 }
 
 // ===== DETECT PAGE TYPE =====
-// If page has article-content = blog article page
-// If page does not = homepage
 const isArticlePage = document.querySelector('.article-content') !== null;
 const isHomePage = !isArticlePage;
 
@@ -37,7 +69,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const homeKey = 'monetag_home_fired';
 
     if (!sessionStorage.getItem(homeKey)) {
+      let timerDone = false;
+      
+      // Start 30 second timer
       setTimeout(function () {
+        timerDone = true;
         // Only fire if user is still on the tab (not switched away)
         if (!document.hidden) {
           sessionStorage.setItem(homeKey, 'yes');
@@ -46,9 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 30000); // 30 seconds
 
       // If user switched tab and came back after 30s, fire on return
-      let timerDone = false;
-      setTimeout(function () { timerDone = true; }, 30000);
-
       document.addEventListener('visibilitychange', function () {
         if (!document.hidden && timerDone && !sessionStorage.getItem(homeKey)) {
           sessionStorage.setItem(homeKey, 'yes');
