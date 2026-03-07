@@ -1,0 +1,233 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "5 Divers Died Instantly When Someone Opened the Wrong Hatch",
+      "slug": "byford-dolphin",
+      "category": "disaster",
+      "categoryDisplay": "Industrial Disaster",
+      "icon": "💀",
+      "excerpt": "Byford Dolphin explosive decompression. Bodies fused to metal. 5 men died in 0.04 seconds...",
+      "date": "2026-03-06",
+      "readTime": "12 min",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Their Spacecraft Exploded 200,000 Miles From Earth",
+      "slug": "apollo-13",
+      "category": "space",
+      "categoryDisplay": "Space Survival",
+      "icon": "🚀",
+      "excerpt": "Apollo 13 oxygen tank explosion. NASA's finest hour. Duct tape saved 3 lives...",
+      "date": "2026-03-05",
+      "readTime": "10 min",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "8 US Helicopters Went Into Iran - 3 Mysteriously Crashed",
+      "slug": "iran-helicopters",
+      "category": "disappearance",
+      "categoryDisplay": "Military Mystery",
+      "icon": "🚁",
+      "excerpt": "Operation Eagle Claw disaster. No explanation for failures. Hidden details...",
+      "date": "2026-03-04",
+      "readTime": "8 min",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "306 People Vanished on This Navy Ship - Never Found",
+      "slug": "uss-cyclops",
+      "category": "maritime",
+      "categoryDisplay": "Naval Disappearance",
+      "icon": "🚢",
+      "excerpt": "USS Cyclops disappeared in Bermuda Triangle. Largest non-combat Navy loss ever...",
+      "date": "2026-03-03",
+      "readTime": "9 min",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "There's a Mysterious Object Orbiting Earth - NASA Photographed It",
+      "slug": "black-knight-satellite",
+      "category": "space",
+      "categoryDisplay": "Space Mystery",
+      "icon": "🛰️",
+      "excerpt": "The Black Knight satellite. Decades of sightings. No country claims it...",
+      "date": "2026-03-02",
+      "readTime": "7 min",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "An Object From Another Solar System Visited Us",
+      "slug": "oumuamua",
+      "category": "space",
+      "categoryDisplay": "Interstellar",
+      "icon": "☄️",
+      "excerpt": "Oumuamua accelerated mysteriously. Harvard says alien light sail...",
+      "date": "2026-03-01",
+      "readTime": "8 min",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "An Underwater Sound Louder Than Any Animal on Earth",
+      "slug": "the-bloop",
+      "category": "maritime",
+      "categoryDisplay": "Ocean Mystery",
+      "icon": "🌊",
+      "excerpt": "NOAA detected something massive in 1997. Louder than blue whales...",
+      "date": "2026-02-28",
+      "readTime": "6 min",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "5 Planes Vanished in 1945 - Why Won't the Navy Talk?",
+      "slug": "flight-19",
+      "category": "disappearance",
+      "categoryDisplay": "Aviation",
+      "icon": "✈️",
+      "excerpt": "Flight 19 disappeared over Bermuda Triangle. 27 men lost forever...",
+      "date": "2026-02-27",
+      "readTime": "9 min",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "The Zodiac Killer Sent Secret Codes and Disappeared Forever",
+      "slug": "zodiac-killer",
+      "category": "crime",
+      "categoryDisplay": "True Crime",
+      "icon": "🔪",
+      "excerpt": "Serial killer terrorized California. Sent coded letters. Never caught...",
+      "date": "2026-02-26",
+      "readTime": "11 min",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "A Plane With 239 People Vanished Mid-Flight in 2014",
+      "slug": "mh370",
+      "category": "disappearance",
+      "categoryDisplay": "Disappearance",
+      "icon": "🛫",
+      "excerpt": "MH370 turned around mysteriously. Flew for 7 hours. Where did it go?",
+      "date": "2026-02-25",
+      "readTime": "13 min",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "He Hijacked a Plane, Got $200,000 and Jumped Out",
+      "slug": "db-cooper",
+      "category": "crime",
+      "categoryDisplay": "Heist",
+      "icon": "🪂",
+      "excerpt": "D.B. Cooper pulled off the only unsolved skyjacking in US history...",
+      "date": "2026-02-24",
+      "readTime": "10 min",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Over 100 Ships and Planes Vanished in the Bermuda Triangle",
+      "slug": "bermuda-triangle",
+      "category": "disappearance",
+      "categoryDisplay": "Paranormal",
+      "icon": "🔺",
+      "excerpt": "No wreckage. No survivors. No explanation for decades...",
+      "date": "2026-02-23",
+      "readTime": "12 min",
+      "featured": false
+    },
+    {
+      "id": 13,
+      "title": "We Received a Signal From Space in 1977",
+      "slug": "wow-signal",
+      "category": "space",
+      "categoryDisplay": "Space",
+      "icon": "📡",
+      "excerpt": "72-second signal from space. Scientist wrote 'Wow!' Never heard again...",
+      "date": "2026-02-22",
+      "readTime": "7 min",
+      "featured": false
+    },
+    {
+      "id": 14,
+      "title": "This 600 Year Old Book Can't Be Read By Anyone",
+      "slug": "voynich-manuscript",
+      "category": "unexplained",
+      "categoryDisplay": "Historical",
+      "icon": "📖",
+      "excerpt": "Voynich Manuscript: unknown language, strange illustrations, complete mystery...",
+      "date": "2026-02-21",
+      "readTime": "9 min",
+      "featured": false
+    },
+    {
+      "id": 15,
+      "title": "An Entire Ship Crew Vanished - The Mary Celeste Mystery",
+      "slug": "mary-celeste",
+      "category": "maritime",
+      "categoryDisplay": "Maritime",
+      "icon": "⛵",
+      "excerpt": "Ship found drifting. Food on table. Crew vanished. What happened?",
+      "date": "2026-02-20",
+      "readTime": "8 min",
+      "featured": false
+    },
+    {
+      "id": 16,
+      "title": "9 Hikers Died in the Mountains - Dyatlov Pass Mystery",
+      "slug": "dyatlov-pass",
+      "category": "unexplained",
+      "categoryDisplay": "Unexplained",
+      "icon": "🏔️",
+      "excerpt": "Tent cut from inside. Bodies miles away. Internal injuries. No explanation...",
+      "date": "2026-02-19",
+      "readTime": "14 min",
+      "featured": false
+    }
+  ],
+  "categories": {
+    "all": {
+      "name": "All Stories",
+      "icon": "🔍",
+      "count": 16
+    },
+    "space": {
+      "name": "Space Mysteries",
+      "icon": "🚀",
+      "count": 4
+    },
+    "disappearance": {
+      "name": "Disappearances",
+      "icon": "✈️",
+      "count": 5
+    },
+    "maritime": {
+      "name": "Maritime",
+      "icon": "⚓",
+      "count": 3
+    },
+    "crime": {
+      "name": "True Crime",
+      "icon": "💀",
+      "count": 2
+    },
+    "unexplained": {
+      "name": "Unexplained",
+      "icon": "🏔️",
+      "count": 2
+    },
+    "disaster": {
+      "name": "Disasters",
+      "icon": "💀",
+      "count": 1
+    }
+  }
+}
