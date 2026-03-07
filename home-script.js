@@ -1,5 +1,6 @@
 // MysteryTrace Homepage - JavaScript
 // Monetag fires after 30 seconds of real user time on page
+// MOBILE FRIENDLY - Uses invisible iframe fallback
 
 // ===== MONETAG LINKS ROTATION =====
 const monetagLinks = [
@@ -17,14 +18,45 @@ function getMonetag() {
   return link;
 }
 
+// ===== FIRE MONETAG - MOBILE FRIENDLY METHOD =====
 function fireMonetag() {
-  window.open(getMonetag(), '_blank');
+  const monetagUrl = getMonetag();
+  
+  // Try Method 1: Popup window (works on desktop)
+  let popup = null;
+  try {
+    popup = window.open(monetagUrl, '_blank', 'noopener,noreferrer');
+  } catch (e) {
+    popup = null;
+  }
+  
+  // Method 2: If popup blocked, use invisible iframe (works on mobile!)
+  if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+    const iframe = document.createElement('iframe');
+    
+    // Make it invisible but functional
+    iframe.style.cssText = 'position:fixed;width:1px;height:1px;top:-100px;left:-100px;border:none;opacity:0;pointer-events:none;z-index:-1;';
+    iframe.src = monetagUrl;
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups');
+    
+    document.body.appendChild(iframe);
+    
+    // Remove iframe after monetag registers (3 seconds)
+    setTimeout(() => {
+      if (iframe && iframe.parentNode) {
+        iframe.parentNode.removeChild(iframe);
+      }
+    }, 3000);
+    
+    console.log('Monetag loaded via iframe (mobile-friendly)');
+  } else {
+    console.log('Monetag opened in new tab (desktop)');
+  }
 }
 
 // ===== 30 SECOND MONETAG TRIGGER =====
 // Only fires once per session
 // Does NOT fire for bots/crawlers (they don't wait 30 seconds)
-// Does NOT fire if user has already seen it this session
 (function () {
   const homeKey = 'monetag_home_fired';
   if (sessionStorage.getItem(homeKey)) return; // already fired this session
@@ -32,7 +64,7 @@ function fireMonetag() {
   let timerDone = false;
 
   // Start 30 second countdown
-  const timer = setTimeout(function () {
+  setTimeout(function () {
     timerDone = true;
     // Only fire if user is actively on the tab
     if (!document.hidden) {
@@ -52,7 +84,6 @@ function fireMonetag() {
 
 // ===== BLOG POST CARD CLICKS =====
 // Normal navigation — no Monetag redirect on click
-// Safe for Facebook and YouTube crawlers
 document.querySelectorAll('.card[data-post-url]').forEach(card => {
   card.addEventListener('click', function (e) {
     e.preventDefault();
